@@ -1,0 +1,3 @@
+development:
+  adapter: solr
+  url: http://localhost:8983/solr/avalon

@@ -1,0 +1,8 @@
+development:
+  adapter: mysql2
+  host: localhost
+  database: rails
+  username: rails
+  password: rails
+  pool: 5
+  timeout: 5000

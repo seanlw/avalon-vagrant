@@ -1,0 +1,27 @@
+development:
+  domain:
+    host: localhost
+    port: 8888
+
+  dropbox:
+    path: '/var/avalon/dropbox/'
+    upload_uri: 'vagrant/dropbox'
+
+  ffmpeg:
+    path: '/usr/bin/ffmpeg'
+
+  groups:
+    system_groups: [administrator, group_manager, manager]
+
+  master_file_management:
+   strategy: 'delete'
+
+  mediainfo:
+   path: '/usr/bin/mediainfo'
+
+  streaming:
+   server: :generic # or :adobe
+   content_path: /var/avalon/rtmp_streams
+   rtmp_base: rtmp://localhost/avalon
+   http_base: http://localhost:8888/streams
+   stream_token_ttl: 20 #minutes
