@@ -16,19 +16,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.network :forwarded_port, guest: 8983, host: 8983 # Solr
 	config.vm.network :forwarded_port, guest: 8984, host: 8984 # Fedora 4
 
-  config.vm.provider "virtualbox" do |v|
-  	v.memory = 3072
-  end
+	config.vm.provider "virtualbox" do |v|
+		v.memory = 3072
+	end
 
 	config.vm.synced_folder "./dropbox", "/var/avalon/dropbox",
 		create: true,
 		mount_options: ["dmode=777,fmode=777"]
 
-  shared_dir = "/vagrant"
+	shared_dir = "/vagrant"
 
-  config.vm.provision "shell", path: "./install_scripts/bootstrap.sh", args: shared_dir
+	config.vm.provision "shell", path: "./install_scripts/bootstrap.sh", args: shared_dir
 	config.vm.provision "shell", path: "./install_scripts/fedora4.sh", args: shared_dir
-  config.vm.provision "shell", path: "./install_scripts/solr.sh", args: shared_dir
+	config.vm.provision "shell", path: "./install_scripts/solr.sh", args: shared_dir
 	config.vm.provision "shell", path: "./install_scripts/red5.sh", args: shared_dir
 	config.vm.provision "shell", path: "./install_scripts/matterhorn.sh", args: shared_dir
 	config.vm.provision "shell", path: "./install_scripts/passenger.sh", args: shared_dir
