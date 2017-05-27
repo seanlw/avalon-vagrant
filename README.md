@@ -11,7 +11,7 @@ Avalon 6.0.x vagrant box
 1. `git clone https://github.com/seanlw/avalon-vagrant.git`
 2. `cd avalon-vagrant`
 3. `vagrant up`
-4. Visit [http://localhost:8888]http://localhost:8888
+4. Visit [http://localhost:8888](http://localhost:8888)
 
 Click the "Sign in" button and setup a new identity with `archivist1@example.com`.
 This is the default identity with administration privileges.
@@ -24,7 +24,7 @@ Shutdown Avalon with `vagrant halt`
 
 ## Manual Install
 
-Read the [Manual Install](Manual Install.md) document if you want to install these systems
+Read the [Manual Install](Manual%20Install.md) document if you want to install these systems
 on other boxes.
 
 ## Environment
