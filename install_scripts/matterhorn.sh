@@ -41,11 +41,9 @@ chown -R avalon:avalon /var/www/avalon
 mkdir -p /usr/local/masterfiles
 chown avalon:avalon /usr/local/masterfiles
 
-mkdir -p /usr/local/red5/webapps/avalon/streams
-chown red5:avalon /usr/local/red5/webapps/avalon/streams
-chmod 0775 /usr/local/red5/webapps/avalon/streams
-
-ln -s /usr/local/red5/webapps/avalon/streams /var/avalon/rtmp_streams
+mkdir /var/avalon/rtmp_streams
+chown matterhorn:matterhorn /var/avalon/rtmp_streams
+chmod 0775 /var/avalon/rtmp_streams
 
 mkdir /var/avalon/hls_streams
 chown matterhorn:matterhorn /var/avalon/hls_streams/
@@ -61,3 +59,5 @@ touch /etc/security/limits.d/99-matterhorn.conf
 echo "matterhorn      hard    nproc   4096" >> /etc/security/limits.d/99-matterhorn.conf
 echo "matterhorn      soft    nproc   4096" >> /etc/security/limits.d/99-matterhorn.conf
 chmod 644 /etc/security/limits.d/99-matterhorn.conf
+
+/etc/init.d/matterhorn start

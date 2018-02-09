@@ -11,8 +11,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.box = "ubuntu/xenial64"
 
 	config.vm.network :forwarded_port, guest: 80, host: 8888 # Avalon
+	config.vm.network :forwarded_port, guest: 8181, host: 8181 # Nginx HLS Stream
 	config.vm.network :forwarded_port, guest: 8080, host: 8080 # Matterhorn
-	config.vm.network :forwarded_port, guest: 1935, host: 1935 # Red5
 	config.vm.network :forwarded_port, guest: 8983, host: 8983 # Solr
 	config.vm.network :forwarded_port, guest: 8984, host: 8984 # Fedora 4
 
@@ -27,9 +27,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	shared_dir = "/vagrant"
 
 	config.vm.provision "shell", path: "./install_scripts/bootstrap.sh", args: shared_dir
+	config.vm.provision "shell", path: "./install_scripts/nginx.sh", args: shared_dir
 	config.vm.provision "shell", path: "./install_scripts/fedora4.sh", args: shared_dir
 	config.vm.provision "shell", path: "./install_scripts/solr.sh", args: shared_dir
-	config.vm.provision "shell", path: "./install_scripts/red5.sh", args: shared_dir
 	config.vm.provision "shell", path: "./install_scripts/matterhorn.sh", args: shared_dir
 	config.vm.provision "shell", path: "./install_scripts/passenger.sh", args: shared_dir
 	config.vm.provision "shell", path: "./install_scripts/avalon.sh", args: shared_dir

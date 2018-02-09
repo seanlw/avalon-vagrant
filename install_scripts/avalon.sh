@@ -44,7 +44,7 @@ cp -f $SHARED_DIR/config/blacklight.yml /var/www/avalon/config/blacklight.yml
 cp -f $SHARED_DIR/config/fedora.yml /var/www/avalon/config/fedora.yml
 cp -f $SHARED_DIR/config/matterhorn.yml /var/www/avalon/config/matterhorn.yml
 cp -f $SHARED_DIR/config/browse_everything_providers.yml /var/www/avalon/config/browse_everything_providers.yml
-cp -f $SHARED_DIR/config/avalon.yml /var/www/avalon/config/avalon.yml
+cp -f $SHARED_DIR/config/avalon.yml /var/www/avalon/config/settings/development.yml
 cp -f $SHARED_DIR/config/secrets.yml /var/www/avalon/config/secrets.yml
 cp -f $SHARED_DIR/config/Gemfile /var/www/avalon/Gemfile
 
@@ -72,17 +72,6 @@ chmod 755 /etc/init.d/resque
 update-rc.d resque defaults
 update-rc.d resque enable
 /etc/init.d/resque start
-
-# Setup Red5 Avalon Security Webapp
-cd /usr/local/red5/webapps
-wget -q https://github.com/avalonmediasystem/avalon-installer/raw/master/modules/avalon/files/red5/red5-avalon.tar.gz
-tar xvzf red5-avalon.tar.gz
-chown -R red5:red5 avalon/
-
-echo "avalon.serverUrl=http://localhost/" >> /usr/local/red5/webapps/avalon/WEB-INF/red5-web.properties
-/etc/init.d/red5 restart
-chown red5:avalon /usr/local/red5/webapps/avalon/streams
-chmod 0775 /usr/local/red5/webapps/avalon/streams
 
 # Cleanup
 echo "Cleaning up..."
