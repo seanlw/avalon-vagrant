@@ -19,8 +19,8 @@ mediainfo:
  path: '/usr/bin/mediainfo'
 
 streaming:
- server: :generic # or :adobe
- content_path: /var/avalon/hls_streams
+ server: :nginx # or :adobe
+ content_path: /var/avalon/rtmp_streams
  rtmp_base: rtmp://localhost/avalon
- http_base: http://localhost:8181/
+ http_base: http://localhost:8181/hls
  stream_token_ttl: 20 #minutes
