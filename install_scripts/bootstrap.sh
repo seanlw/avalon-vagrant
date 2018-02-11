@@ -29,6 +29,7 @@ fi
 iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
 iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 1935 -j ACCEPT
 iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
+iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 8181 -j ACCEPT
 iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 8983 -j ACCEPT
 iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 8984 -j ACCEPT
 
